@@ -34,6 +34,7 @@ func TestExpand(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
+	defer reader.Close()
 
 	if err := Expand(dest, reader); err != nil {
 		t.Fatal(err)
@@ -52,6 +53,7 @@ func TestExpand(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
+	defer dir.Close()
 
 	fis, err := dir.Readdir(0)
 	if err != nil {
@@ -104,6 +106,7 @@ func TestExpandFile(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
+	defer dir.Close()
 
 	fis, err := dir.Readdir(0)
 	if err != nil {
